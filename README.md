@@ -13,15 +13,25 @@ To write a python program to perform sliding window protocol
 6. Stop the program
 ### CLIENT PROGRAM :
 import socket
+
 s=socket.socket()
+
 s.bind(('localhost',8000))
+
 s.listen(5)
+
 c,addr=s.accept()
+
 size=int(input("Enter number of frames to send:"))
+
 l=list(range(size))
+
 s=int(input("Enter Window Size:"))
+
 st=0
+
 i=0
+
 while True:
 
 	while(i<len(l)):
@@ -34,11 +44,16 @@ while True:
 			i+=s
 ### SERVER PROGRAM :
 import socket
+
 s=socket.socket()
+
 s.connect(('localhost',8000))
+
 while True:
-	print(s.recv(1024).decode())
-	s.send("acknowledgement recieved from the server".encode())
+
+print(s.recv(1024).decode())
+
+s.send("acknowledgement recieved from the server".encode())
 
 ### SERVER OUTPUT :
 ![image](https://github.com/hearttoucher123/EX-3/assets/122000959/033e6b6f-0641-40fa-8d9e-743adade701d)
